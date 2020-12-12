@@ -45,7 +45,7 @@ function Store(props) {
             </div>
         </div>
     );
-    
+
 }
 
 export default Store;
