@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+
+.supreme-logo {
+  font-family: 'Futura', 'Arial', sans-serif;
+  color: white;
+  font-weight: bolder;
+  font-style: oblique;
+  background-color: red;
+}

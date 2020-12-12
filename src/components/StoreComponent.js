@@ -4,6 +4,7 @@ import { Card, CardImg, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap
 import { Link } from 'react-router-dom';
 import CardBody from 'reactstrap/lib/CardBody';
 import Button from 'reactstrap/lib/Button';
+import SortMenu from "./SortComponent";
 
 
 function RenderStoreItem({product}) {
@@ -39,10 +40,11 @@ function Store(props) {
                         {/* <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem> */}
                         <BreadcrumbItem active>Store</BreadcrumbItem>
                     </Breadcrumb>
-                    <h2>Store</h2>
+                    <h2 className="supreme-logo p-2 d-inline-flex">Supreme</h2>
                     <hr />
                 </div>
             </div>
+            <SortMenu />
             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4">
                 {store}
             </div>
