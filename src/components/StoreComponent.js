@@ -13,11 +13,10 @@ function RenderStoreItem({product}) {
             <Link to={`/store/${product.sku}`}>
                 <CardImg className="img-img-fluid p-3 d-block w-100 mx-auto" height="" src={product.image} alt={product.name} />
                 <Button className="btn btn-danger btn-sm">View</Button>
-                <CardTitle className="text-body">{product.name}</CardTitle>
-                <CardBody className="text-body">$ {product.price.toFixed(2)}</CardBody>
-                {/* <CardBody><NumberFormat value={product.price.toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'$'} /></CardBody> */}
-                
             </Link>
+            <CardTitle className="text-body">{product.name}</CardTitle>
+            <CardBody className="text-body">$ {product.price.toFixed(2)}</CardBody>
+            {/* <CardBody><NumberFormat value={product.price.toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'$'} /></CardBody> */}
         </Card>
     );
 }
