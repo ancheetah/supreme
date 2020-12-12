@@ -1,5 +1,5 @@
 import React from 'react';
-import NumberFormat from 'react-number-format';
+// import NumberFormat from 'react-number-format';
 import { Card, CardImg, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import CardBody from 'reactstrap/lib/CardBody';
@@ -10,9 +10,11 @@ function RenderStoreItem({product}) {
         <Card>
             <Link to={`/store/${product.sku}`}>
                 <CardImg width="100%" src={product.image} alt={product.name} />
-                <CardTitle>{product.name}</CardTitle>
-                <CardBody><NumberFormat value={product.price.toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'$'} /></CardBody>
-                <Button className="btn-danger text-white">View</Button>
+                <Button className="btn btn-danger btn-sm">View</Button>
+                <CardTitle className="text-body">{product.name}</CardTitle>
+                <CardBody className="text-body">$ {product.price.toFixed(2)}</CardBody>
+                {/* <CardBody><NumberFormat value={product.price.toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'$'} /></CardBody> */}
+                
             </Link>
         </Card>
     );

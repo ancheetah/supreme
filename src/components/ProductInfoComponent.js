@@ -2,6 +2,7 @@ import React from 'react';
 import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 // import {Button} from 'reactstrap/lib/Button';
 import { Link } from 'react-router-dom';
+import Cart from './CartComponent';
 
 function RenderProductInfo({product}) {
     return (
@@ -13,9 +14,8 @@ function RenderProductInfo({product}) {
                     <h3>{product.name}</h3>
                     <p>{`Availability: ${product.availability}`}</p>
                     <p>{`Description: ${product.description}`}</p>
-                    <p>{`$ ${product.price}`}</p>
-                    <p>Quantity: </p>
-                    <button class="btn btn-danger">Add to Cart</button>
+                    <p>{`$ ${product.price.toFixed(2)}`}</p>
+                    <Cart />
                 </div>
             </div>
     );
@@ -32,8 +32,6 @@ function ProductInfo(props) {
                             <BreadcrumbItem><Link to="/store">Store</Link></BreadcrumbItem>
                             <BreadcrumbItem active>{props.product.name}</BreadcrumbItem>
                         </Breadcrumb>
-                        {/* <h2>{props.product.name}</h2> */}
-                        {/* <hr /> */}
                     </div>
                 </div>
                 <RenderProductInfo product={props.product} />
