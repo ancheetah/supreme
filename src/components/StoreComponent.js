@@ -7,9 +7,9 @@ import Button from 'reactstrap/lib/Button';
 
 function RenderStoreItem({product}) {
     return (
-        <Card>
+        <Card className="h-100">
             <Link to={`/store/${product.sku}`}>
-                <CardImg width="100%" src={product.image} alt={product.name} />
+                <CardImg className="img-img-fluid p-3 d-block w-100 mx-auto" height="" src={product.image} alt={product.name} />
                 <Button className="btn btn-danger btn-sm">View</Button>
                 <CardTitle className="text-body">{product.name}</CardTitle>
                 <CardBody className="text-body">$ {product.price.toFixed(2)}</CardBody>
@@ -24,7 +24,7 @@ function Store(props) {
 
     const store = props.products.map(product => {
         return (
-            <div key={product.id} className="col m-1">
+            <div key={product.id} className="col my-3">
                 <RenderStoreItem product={product} />
             </div>
         );
