@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import CardBody from 'reactstrap/lib/CardBody';
 import Button from 'reactstrap/lib/Button';
 
+
 function RenderStoreItem({product}) {
     return (
         <Card className="h-100">
