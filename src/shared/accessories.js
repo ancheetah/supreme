@@ -76,18 +76,18 @@ export const ACCESSORIES = [
         rating: 6,
         price: 300
     },
-    {
-        id: 7,
-        name: "Supreme Utility Pouch SS20",
-        image: ["/assets/img/SupremeUtilityPouchSS20-Black_1024x1024.jpg",
-                "/assets/img/SupremeUtilityPouchSS20-BlueDesertCamo_1024x1024.jpg"],
-        availability: ["In Stock", "In Stock"],
-        description: "Description",
-        color: ["black","blue desert camo"],
-        sku: [98765, 98764],
-        rating: 7,
-        price: [120, 100]
-    },
+    // {
+    //     id: 7,
+    //     name: "Supreme Utility Pouch SS20",
+    //     image: ["/assets/img/SupremeUtilityPouchSS20-Black_1024x1024.jpg",
+    //             "/assets/img/SupremeUtilityPouchSS20-BlueDesertCamo_1024x1024.jpg"],
+    //     availability: ["In Stock", "In Stock"],
+    //     description: "Description",
+    //     color: ["black","blue desert camo"],
+    //     sku: [98765, 98764],
+    //     rating: 7,
+    //     price: [120, 100]
+    // },
     // {
     //     id: 8,
     //     name: "Supreme Utility Pouch SS20",
