@@ -1,3 +1,5 @@
+// Data from https://www.streetwearofficial.com/collections/supreme
+
 export const ACCESSORIES = [
     {
         id: 0,
