@@ -30,7 +30,9 @@ class Main extends Component {
             <div>
                 {/* <Header /> */}
                 <Switch>
-                    <Route exact path='/store' render={() => <Store products={this.state.accessories} />} />
+                    <Route exact path='/store' render={() => 
+                        <Store products={this.state.accessories} updateProducts={(products) => 
+                        this.setState({accessories: products}, () => console.log('Updated State'))}/>} />
                     <Route path='/store/:productSku' component={ProductWithSKU} />
                     <Redirect to='/store' />
                 </Switch>
