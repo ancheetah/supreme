@@ -34,13 +34,13 @@ class Sort extends Component {
 
   ratingLowToHigh() {
     const sortedArr = this.props.products.sort((a,b) => (a.rating > b.rating) ? 1 : -1);
-    console.log("sortedArr: ", sortedArr);
+    //console.log("sortedArr: ", sortedArr);
     this.props.updateProducts(sortedArr);
   }
 
   ratingHighToLow() {
     const sortedArr = this.props.products.sort((a,b) => (a.rating < b.rating) ? 1 : -1);
-    console.log("sortedArr: ", sortedArr);
+    //console.log("sortedArr: ", sortedArr);
     this.props.updateProducts(sortedArr);
   }
 
