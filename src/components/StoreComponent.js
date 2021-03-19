@@ -11,12 +11,11 @@ function RenderStoreItem({product}) {
     return (
         <Card className="h-100">
             <Link to={`/store/${product.sku}`}>
-                <CardImg className="img-img-fluid p-3 d-block w-100 mx-auto" height="" src={product.image} alt={product.name} />
+                <CardImg className="img-img-fluid p-3 d-block w-100 mx-auto" width="200" height="200" src={product.image} alt={product.name} />
                 <Button className="btn btn-danger btn-sm">View</Button>
             </Link>
             <CardTitle className="text-body">{product.name}</CardTitle>
             <CardBody className="text-body">$ {product.price.toFixed(2)}</CardBody>
-            {/* <CardBody><NumberFormat value={product.price.toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'$'} /></CardBody> */}
         </Card>
     );
 }

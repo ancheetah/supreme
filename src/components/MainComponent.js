@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import Store from './StoreComponent';
 import ProductInfo from './ProductInfoComponent';
 import { ACCESSORIES } from '../shared/accessories';
@@ -34,7 +34,7 @@ class Main extends Component {
                         <Store products={this.state.accessories} updateProducts={(products) => 
                         this.setState({accessories: products}, () => console.log('Updated State'))}/>} />
                     <Route path='/store/:productSku' component={ProductWithSKU} />
-                    <Redirect to='/store' />
+                    {/* <Redirect to='/store' /> */}
                 </Switch>
             </div>
         );
