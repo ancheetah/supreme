@@ -22,13 +22,6 @@ function RenderStoreItem({product}) {
 
 class Store extends Component {
 
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         products: []
-    //     };
-    // }
-
     render() {
 
         const store = this.props.products.map(product => {
