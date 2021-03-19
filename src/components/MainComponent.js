@@ -3,8 +3,6 @@ import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Store from './StoreComponent';
 import ProductInfo from './ProductInfoComponent';
-// import { ACCESSORIES } from '../shared/accessories';
-// import { APPAREL } from '../shared/apparel';
 
 const mapStateToProps = state => {
     return {
@@ -21,18 +19,17 @@ class Main extends Component {
             console.log(match.params.productSKU);
             return (
                 <ProductInfo 
-                    product={this.props.accessories.filter(product => product.sku === +match.params.productSku)[0]}
+                    product={this.props.accessories.filter(product => 
+                        product.sku === +match.params.productSku)[0]}
                 />
             );
         };
 
         return (
             <div>
-                {/* <Header /> */}
                 <Switch>
                     <Route exact path='/store' render={() => 
-                        <Store products={this.props.accessories} updateProducts={(products) =>
-                                this.setState({accessories: products}, () => console.log('Updated State'))}/>} /> 
+                        <Store products={this.props.accessories}/>} /> 
                     <Route path='/store/:productSku' component={ProductWithSKU} />
                     <Redirect to='/store' />
                 </Switch>

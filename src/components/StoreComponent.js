@@ -4,7 +4,7 @@ import { Card, CardImg, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap
 import { Link } from 'react-router-dom';
 import CardBody from 'reactstrap/lib/CardBody';
 import Button from 'reactstrap/lib/Button';
-import Sort from "./SortComponent";
+import SortMenu from "./SortMenuComponent";
 
 
 function RenderStoreItem({product}) {
@@ -44,7 +44,7 @@ class Store extends Component {
                         <hr />
                     </div>
                 </div>
-                <Sort products={this.props.products} updateProducts={this.props.updateProducts}/>
+                <SortMenu products={this.props.products}/>
                 <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4">
                     {store}
                 </div>
