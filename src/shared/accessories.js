@@ -4,7 +4,7 @@ export const ACCESSORIES = [
     {
         id: 0,
         name: "Supreme/Colgate Toothpaste",
-        image: "/public/assets/img/Supreme_Colgate_Toothpaste-White_1024x1024.jpg",
+        image: "Supreme_Colgate_Toothpaste-White_1024x1024.jpg",
         availability: "In Stock",
         description: "Description",
         color: ["white"],
@@ -15,7 +15,7 @@ export const ACCESSORIES = [
     {
         id: 1,
         name: "Supreme Metal Folding Chair",
-        image: "/public/assets/img/SupremeMetalFoldingChair-Black_1024x1024.jpg",
+        image: "SupremeMetalFoldingChair-Black_1024x1024.jpg",
         availability: "In Stock",
         description: "Description",
         color: ["black"],
@@ -26,7 +26,7 @@ export const ACCESSORIES = [
     {
         id: 2,
         name: "Supreme Steiff Bear",
-        image: "/public/assets/img/bears_1024x1024.jpg",
+        image: "bears_1024x1024.jpg",
         availability: "Out of Stock",
         description: "Description",
         color: ["heather gray"],
@@ -37,7 +37,7 @@ export const ACCESSORIES = [
     {
         id: 3,
         name: "Supreme / Sasquatchfabrix Folding Fan",
-        image: "/public/assets/img/SupremeSasquatchfabrixFoldingFan-White_1024x1024.jpg",
+        image: "SupremeSasquatchfabrixFoldingFan-White_1024x1024.jpg",
         availability: "In Stock",
         description: "Description",
         color: ["white"],
@@ -48,7 +48,7 @@ export const ACCESSORIES = [
     {
         id: 4,
         name: "Supreme Bolt Cutters",
-        image: "/public/assets/img/bolt_1024x1024.jpg",
+        image: "bolt_1024x1024.jpg",
         availability: "Out of Stock",
         description: "Description",
         color: ["red"],
@@ -59,7 +59,7 @@ export const ACCESSORIES = [
     {
         id: 5,
         name: "Supreme Crowbar",
-        image: "/public/assets/img/corw_1024x1024.jpg",
+        image: "corw_1024x1024.jpg",
         availability: "Out of Stock",
         description: "Description",
         color: ["red"],
@@ -70,7 +70,7 @@ export const ACCESSORIES = [
     {
         id: 6,
         name: "Supreme Diamond Cut Zippo",
-        image: "/public/assets/img/ILVER_1024x1024.jpg",
+        image: "ILVER_1024x1024.jpg",
         availability: "Out of Stock",
         description: "Description",
         color: ["silver"],
@@ -104,7 +104,7 @@ export const ACCESSORIES = [
     {
         id: 9,
         name: "Supreme Canvas Tote",
-        image: "/public/assets/img/SupremeCanvasTote-White2_1024x1024.jpg",
+        image: "SupremeCanvasTote-White2_1024x1024.jpg",
         availability: "In Stock",
         description: "Description",
         color: ["white"],

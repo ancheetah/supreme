@@ -11,7 +11,8 @@ function RenderStoreItem({product}) {
     return (
         <Card className="h-100">
             <Link to={`/store/${product.sku}`}>
-                <CardImg className="img-img-fluid p-3 d-block w-100 mx-auto" width="200" height="200" src={product.image} alt={product.name} />
+                <CardImg className="img-fluid p-3 mx-auto"
+                        src={ process.env.PUBLIC_URL + '/assets/img/' + product.image } alt={product.name} />
                 <Button className="btn btn-danger btn-sm">View</Button>
             </Link>
             <CardTitle className="text-body">{product.name}</CardTitle>
@@ -45,7 +46,7 @@ class Store extends Component {
                     </div>
                 </div>
                 <SortMenu products={this.props.products}/>
-                <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+                <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
                     {store}
                 </div>
             </div>

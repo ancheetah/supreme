@@ -8,7 +8,8 @@ function RenderProductInfo({product}) {
     return (
             <div className="row">
                 <div className="col-md-4 m-1">
-                    <img src={product.image} alt={product.name} className="img-fluid" />
+                    <img src={ process.env.PUBLIC_URL + '/assets/img/' + product.image} 
+                        alt={product.name} className="img-fluid" />
                 </div>
                 <div className="col-md-6 m-1">
                     <h3>{product.name}</h3>
