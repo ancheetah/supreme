@@ -26,14 +26,12 @@ class Main extends Component {
         };
 
         return (
-            <div>
                 <Switch>
                     <Route exact path='/store' render={() => 
                         <Store products={this.props.accessories}/>} /> 
                     <Route path='/store/:productSku' component={ProductWithSKU} />
                     <Redirect to='/store' />
                 </Switch>
-            </div>
         );
     }
 

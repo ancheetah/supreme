@@ -21,13 +21,13 @@ class Cart extends Component {
     render() {
         return (
             <div>
-                <p>Quantity</p>
+                <p><strong>Quantity</strong></p>
                 <div class="btn-group" role="group">
                     <button onClick={this.IncrementItem} type="button" class="btn btn-danger">+</button>
                     <span class="px-3 py-2 border border-danger">{this.state.clicks}</span>
                     <button onClick={this.DecrementItem} type="button" class="btn btn-danger">-</button>
                 </div>
-                <p><strong>Cart ({this.state.clicks})</strong></p>
+                <p>Cart ({this.state.clicks})</p>
             </div>
         );
     }
