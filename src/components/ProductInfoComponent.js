@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import Cart from './CartComponent';
 
@@ -13,10 +12,11 @@ function RenderProductInfo({product}) {
                     </div>
                     <div className="col-md-6 m-1 mx-auto">
                         <h3 className="pb-4">{product.name}</h3>
-                        <p className="my-0"><b>Availability:</b> {product.availability}</p>
+                        <p className="my-0" style={{color: product.availability === "Out of Stock" ? "red" : "green"}}>
+                            {product.availability}</p>
                         <p><b>Description:</b> {product.description}</p>
                         <p className="pt-3">{`$ ${product.price.toFixed(2)}`}</p>
-                        <Cart/>
+                        <Cart availability={product.availability}/>
                     </div>
                 </div>
             </div>
