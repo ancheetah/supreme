@@ -13,7 +13,7 @@ function RenderStoreItem({product}) {
             </Link>
             <div className="card-body">
                 <p className="card-text py-1">$ {product.price.toFixed(2)}</p>
-                <h5 className="card-title">{product.name}</h5>
+                <p className="card-title"><strong>{product.name}</strong></p>
                 <Link to={`/store/${product.sku}`}>
                     <button className="btn btn-danger btn-sm">View</button>
                 </Link>
@@ -41,7 +41,7 @@ class Store extends Component {
                             <li class="breadcrumb-item text-white" active>Home</li>
                         </ol>
                     </nav>
-                    <h2 className="supreme-logo p-2 d-inline-flex">Supreme</h2>
+                    <h1 className="supreme-logo p-2 my-3 d-inline-flex">Supreme</h1>
                     <hr />
                     <div class="container">
                         <SortMenu products={this.props.products}/>

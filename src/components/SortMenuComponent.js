@@ -29,7 +29,7 @@ class SortMenu extends Component {
   render() {
     return (
       <Dropdown isOpen={this.state.isDropdownOpen} toggle={this.toggleDropdown} size="sm" className="d-flex justify-content-start">
-        <DropdownToggle caret>Sort By</DropdownToggle>
+        <DropdownToggle caret className="bg-white text-dark">Sort By</DropdownToggle>
         <DropdownMenu>
 
           <DropdownItem header>Price</DropdownItem>
