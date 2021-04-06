@@ -45,3 +45,7 @@
   font-style: oblique;
   background-color: red;
 }
+
+.jumbotron {
+  background-color: black !important;
+}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SortMenu from "./SortMenuComponent";
-
+import HeaderComponent from './HeaderComponent';
 
 function RenderStoreItem({product}) {
     return (
@@ -40,11 +40,12 @@ function Store(props) {
 
         return (
                 <React.Fragment>
-                    <nav>
+                    <HeaderComponent/>
+                    {/* <nav>
                         <ol class="breadcrumb rounded-0 bg-dark">
                             <li class="breadcrumb-item text-white" active>Home</li>
                         </ol>
-                    </nav>
+                    </nav> */}
                     <h1 className="supreme-logo p-2 my-3 d-inline-flex">Supreme</h1>
                     <hr />
                     <div class="container">
