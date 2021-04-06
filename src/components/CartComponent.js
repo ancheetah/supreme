@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+//dispatch from here; product id and quantity
+
 class Cart extends Component {
     constructor(props) {
         super(props);
@@ -9,7 +11,7 @@ class Cart extends Component {
         this.incrementItem = this.incrementItem.bind(this);
         this.decrementItem = this.decrementItem.bind(this);
     }
-
+    
     incrementItem = (availability) => {
         if (availability === "In Stock") {
             return this.setState({ clicks: this.state.clicks + 1});

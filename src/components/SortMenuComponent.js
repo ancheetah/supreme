@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
-import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { sortByPrice, sortByRating } from '../redux/ActionCreators';
+// import { withRouter } from 'react-router-dom';
+// import { connect } from 'react-redux';
 
-const mapDispatchToProps = {
-  sortByPrice: (arr, direction) => (sortByPrice(arr, direction)),
-  sortByRating: (arr, direction) => (sortByRating(arr, direction))
-}
+// const mapDispatchToProps = {
+//   sortByPrice: (arr, direction) => (sortByPrice(arr, direction)),
+//   sortByRating: (arr, direction) => (sortByRating(arr, direction))
+// }
 
 class SortMenu extends Component {
 
@@ -26,6 +25,17 @@ class SortMenu extends Component {
       });
   }
 
+  sortAsc(field) {
+    let sortedProducts = this.props.products.sort((a,b) => (a[field] > b[field]) ? 1 : -1);
+    this.props.setProducts(this.props.products.sort((a,b) => (a[field] > b[field]) ? 1 : -1));
+    console.log("In sortAsc", sortedProducts);
+  }
+  
+  sortDesc(field) {
+    this.props.setProducts(this.props.products.sort((a,b) => (a[field] < b[field]) ? 1 : -1));
+    console.log("In sortDesc");
+  }
+
   render() {
     return (
       <Dropdown isOpen={this.state.isDropdownOpen} toggle={this.toggleDropdown} size="sm" className="d-flex justify-content-start">
@@ -35,11 +45,11 @@ class SortMenu extends Component {
           <DropdownItem header>Price</DropdownItem>
           
           <DropdownItem 
-            onClick={this.props.sortByPrice(this.props.products, "ascending")}>
+            onClick={() => this.sortAsc("price")}>
               Budget Friendly to Ballin'
           </DropdownItem>
           <DropdownItem 
-            onClick={this.props.sortByPrice(this.props.products, "descending")}>
+            onClick={() => this.sortDesc("price")}>
               Ballin' to Budget Friendly
           </DropdownItem>
 
@@ -47,11 +57,11 @@ class SortMenu extends Component {
           <DropdownItem header>Rating</DropdownItem>
 
           <DropdownItem 
-            onClick={this.props.sortByRating(this.props.products, "ascending")}>
+            onClick={() => this.sortAsc("rating")}>
               Most Outrageous to Essentials
           </DropdownItem>
           <DropdownItem 
-            onClick={this.props.sortByRating(this.props.products, "descending")}>
+            onClick={() => this.sortDesc("rating")}>
               Essentials to Most Outrageous
           </DropdownItem>
 
@@ -61,4 +71,5 @@ class SortMenu extends Component {
   }
 }
 
-export default withRouter(connect(null, mapDispatchToProps)(SortMenu));
+// export default withRouter(connect(null, mapDispatchToProps)(SortMenu));
+export default SortMenu;

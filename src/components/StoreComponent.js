@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SortMenu from "./SortMenuComponent";
 
@@ -22,11 +22,15 @@ function RenderStoreItem({product}) {
     );
 }
 
-class Store extends Component {
+function Store(props) {
+    const [products, setProducts] = useState([]);   // initial state for products is props.products from redux store when component loads
+                                                    // returns 2 vals => current state and function to update current state
+    useEffect(() => {
+            setProducts(props.products) // similar to this.setState()
+            console.log("props.products")
+        }, [props.products])   // fires whenever props.products changes
 
-    render() {
-
-        const store = this.props.products.map(product => {
+        const store = products.map(product => {
             return (
                 <div key={product.id} className="col my-3">
                     <RenderStoreItem product={product} />
@@ -44,14 +48,15 @@ class Store extends Component {
                     <h1 className="supreme-logo p-2 my-3 d-inline-flex">Supreme</h1>
                     <hr />
                     <div class="container">
-                        <SortMenu products={this.props.products}/>
+                        <SortMenu products={[...products]} setProducts={(p) => { // Array.sort() does not return a new array so we need spread operator
+                            setProducts(p) 
+                        }} />
                         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
                             {store}
                         </div>
                     </div>
                 </React.Fragment>
         );
-    }
 
 }
 
