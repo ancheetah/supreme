@@ -1,5 +1,6 @@
 import React, { Component }  from 'react';
 import { Button, Modal, ModalHeader, ModalBody, 
+    Collapse,
     Form, FormGroup, Input, Label } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 
@@ -8,7 +9,6 @@ class Header extends Component {
     constructor(props) {
         super(props);
 
-        this.toggleNav = this.toggleNav.bind(this);
         this.state = {
           isNavOpen: false,
           isModalOpen: false
@@ -44,15 +44,25 @@ class Header extends Component {
                     <img src="/assets/img/OD-logo.png" href="#" alt="On Deck Logo" className="fluid"/>
                 </div>
 
-                <nav className="navbar navbar-dark bg-dark sticky-top">
+                <nav className="navbar navbar-dark bg-dark sticky-top navbar-expand-md mb-5">
                     <a className="navbar-brand" href="/">
-                        <img src="/assets/img/OD-sublogo.png" alt="On Deck Sublogo"/>
+                        <img src="/assets/img/OD-sublogo.png" alt="On Deck Sublogo" height="30" width="30"/>
                     </a>
-                    <span className="navbar-text ml-auto">  {/* styles the button to match navbar and align right */}
-                        <button className="btn btn-outline-light" onClick={this.toggleModal}> {/* toggles modal on click */}
-                            <i className="fa fa-home fa-lg" /> Cart
-                        </button>
-                    </span>
+                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuItems" onClick={this.toggleNav}>
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+
+                    <Collapse navbar id="menuItems" isOpen={this.state.isNavOpen}>
+                        <ul class="navbar-nav text-light mx-3">
+                            <li className="nav-item mx-2"><NavLink className="nav-link" to="/store">Shop</NavLink></li>
+                            <li className="nav-item mx-2"><NavLink className="nav-link" to="/brands">Brands</NavLink></li>
+                        </ul>
+                        <span className="navbar-text ml-auto">
+                            <button className="btn btn-outline-light" onClick={this.toggleModal}>
+                                <i className="fa fa-home"></i>Cart
+                            </button>
+                        </span>
+                    </Collapse>
                 </nav>
 
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}> {/* isOpen and toggle are built-in attributes of <Modal> in reactstrap */}

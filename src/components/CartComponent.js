@@ -24,6 +24,10 @@ class Cart extends Component {
         }
     }
 
+    handleClick = (id) => {
+        this.props.addToCart(id);
+    }
+
     render() {
         return (
             <div>
