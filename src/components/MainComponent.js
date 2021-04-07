@@ -6,6 +6,7 @@ import ProductInfo from './ProductInfoComponent';
 import Cart from './CartComponent';
 
 const mapStateToProps = state => {
+    console.log(state);
     return {
         accessories: state.accessories,
         apparel: state.apparel
