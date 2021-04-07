@@ -2,7 +2,7 @@ import React, { Component }  from 'react';
 import { Button, Modal, ModalHeader, ModalBody, 
     Collapse,
     Form, FormGroup, Input, Label } from 'reactstrap';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 class Header extends Component {
 
@@ -40,13 +40,15 @@ class Header extends Component {
     render() {
         return (
             <React.Fragment>
-                <div className="jumbotron jumbotron-fluid mb-0">
-                    <img src="/assets/img/OD-logo.png" href="#" alt="On Deck Logo" className="fluid"/>
+                <div className="jumbotron jumbotron-fluid my-0 py-0">
+                    <Link to="/store"><img src={process.env.PUBLIC_URL + "/assets/img/OD-logo.png"} alt="On Deck Logo" 
+                        className="fluid" height="300"/></Link>
                 </div>
 
                 <nav className="navbar navbar-dark bg-dark sticky-top navbar-expand-md mb-5">
                     <a className="navbar-brand" href="/">
-                        <img src="/assets/img/OD-sublogo.png" alt="On Deck Sublogo" height="30" width="30"/>
+                    <Link to="/store"><img src={process.env.PUBLIC_URL + "/assets/img/OD-sublogo.png"} 
+                        alt="On Deck Sublogo" height="60" width="60"/></Link>
                     </a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuItems" onClick={this.toggleNav}>
                         <span className="navbar-toggler-icon"></span>
@@ -57,7 +59,7 @@ class Header extends Component {
                             <li className="nav-item mx-2"><NavLink className="nav-link" to="/store">Shop</NavLink></li>
                             <li className="nav-item mx-2"><NavLink className="nav-link" to="/brands">Brands</NavLink></li>
                             <li className="nav-item mx-2"><NavLink className="nav-link" to="/cart">
-                                <i className="fa fa-shopping-cart"></i>Cart</NavLink>
+                                <i className="fa fa-shopping-cart pr-2"></i>Cart</NavLink>
                             </li>
                         </ul>
                         {/* <span className="navbar-text ml-auto">

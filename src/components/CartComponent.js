@@ -17,7 +17,8 @@ function Cart(props) {
                     return(
                        
                         <li className="media" key={item.sku}>
-                            <img src={item.img} alt={item.img} className="mr-3"/>
+                            <img src={process.env.PUBLIC_URL + '/assets/img/' + item.image} alt={item.image} 
+                                className="mr-3" height="150" width="150" />
                         
                             <div className="media-body">
                                 <h5 className="mt-0 mb-1">{item.name}</h5>
@@ -25,10 +26,10 @@ function Cart(props) {
                                 <p><b>Price: ${item.price}</b></p> 
                                 <p><b>Quantity: {item.quantity}</b></p>
                                 <div className="add-remove">
-                                    <Link to="/cart"><i className="fa fa-caret-up"></i></Link>
-                                    <Link to="/cart"><i className="fa fa-caret-down"></i></Link>
+                                    <Link to="/cart"><i className="fa fa-plus-circle fa-lg px-2 text-primary"></i></Link>
+                                    <Link to="/cart"><i className="fa fa-minus-circle fa-lg px-2 text-primary"></i></Link>
                                 </div>
-                                <button className="btn btn-outline-secondary">Remove</button>
+                                <button className="btn btn-outline-primary">Remove</button>
                             </div>
                             
                         </li>                        
@@ -41,7 +42,7 @@ function Cart(props) {
              )
 
        return(
-            <div>
+            <React.Fragment>
                 <Header/>
                 <div className="cart container">
                     <h5>You have ordered:</h5>
@@ -49,7 +50,7 @@ function Cart(props) {
                         {addedItems}
                     </ul>
                 </div>  
-            </div>
+            </React.Fragment>
        )
 
 }
