@@ -3,26 +3,25 @@ import * as ActionTypes from './ActionTypes';
 export const cartReducer = ( state, action) => {
     switch (action.type) {
         case ActionTypes.ADD_TO_CART:   // On product page
-            let addedItem = state.accessories.find( item => item.sku === action.payload.sku );    // get the item object
-            let existingItem = state.addedItems.find( item => item.sku === action.payload.sku );    // Check if the item exists in the cart already
+            let addedItem = state.accessories.find( item => item.sku === action.payload.sku );    // get a ref to the item object
+            let existingItem = state.addedItems.find( id => id === action.payload.sku );    // Check if the item exists in the cart already
 
             if (addedItem.availability === "In Stock") {
                 if (existingItem) {
                     addedItem.quantity += 1;
-                    let newPrice = state.totalPrice + addedItem.price;
                     return { 
                         ...state, 
-                        totalPrice: newPrice
+                        numItems: state.numItems + 1,
+                        totalPrice: state.totalPrice + addedItem.price
                     }
                 }
                 else {
                     addedItem.quantity = 1;
-                    let newPrice = state.totalPrice + addedItem.price;
-                    let newItems = [...state.addedItems, addedItem];
                     return { 
                         ...state, 
-                        addedItems: newItems, 
-                        totalPrice: newPrice
+                        addedItems: [...state.addedItems, addedItem.sku], 
+                        numItems: state.numItems + 1,
+                        totalPrice: state.totalPrice + addedItem.price
                     }
                 }
             } else {
@@ -31,18 +30,20 @@ export const cartReducer = ( state, action) => {
         
         case ActionTypes.SUBTRACT_FROM_CART:
             let subtractItem = state.accessories.find( item => item.sku === action.payload.sku );
-            console.log(subtractItem.quantity);
-            if (subtractItem.quantity === 1) {
+
+            if (subtractItem.quantity === 1) {  // remove from cart
                 subtractItem.quantity -= 1;
                 return {
                     ...state,
-                    addedItems: state.addedItems.filter( item => item.sku !== action.payload.sku),
+                    addedItems: state.addedItems.filter( id => id !== action.payload.sku),
+                    numItems: state.numItems - 1,
                     totalPrice: state.totalPrice - subtractItem.price
                 }
             } else if (subtractItem.quantity > 1) {
                 subtractItem.quantity -= 1;
                 return {
                     ...state,
+                    numItems: state.numItems - 1,
                     totalPrice: state.totalPrice - subtractItem.price
                 }
             } else {
@@ -50,10 +51,11 @@ export const cartReducer = ( state, action) => {
             }
         
         case ActionTypes.REMOVE_ITEM:   // Delete the item from the cart all together
-            let itemToRemove = state.addedItems.find( item => item.sku === action.payload.sku );
+            let itemToRemove = state.accessories.find( item => item.sku === action.payload.sku );
             return {
                 ...state,
-                addedItems: state.addedItems.filter( item => item.sku !== action.payload.sku),
+                addedItems: state.addedItems.filter( id => id !== action.payload.sku),
+                numItems: state.numItems - itemToRemove.quantity,
                 totalPrice: state.totalPrice - (itemToRemove.price * itemToRemove.quantity)
             }
         default:

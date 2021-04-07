@@ -4,9 +4,16 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addToCart, subtractFromCart } from '../redux/ActionCreators';
 
+const mapStateToProps = state => {
+    return {
+        numItems: state.numItems
+    }
+}
+
 const mapDispatchToProps = { addToCart, subtractFromCart };
 
 function ProductInfo(props) {
+
     if (props.product) {
         let product = props.product;
         const handleAdd = (id) => props.addToCart(id);
@@ -34,17 +41,16 @@ function ProductInfo(props) {
                             <p className="my-0" style={{color: product.availability === "Out of Stock" ? "red" : "green"}}>
                                 {product.availability}</p>
                             <p><b>Description:</b> {product.description}</p>
-                            <p className="pt-3">{`$ ${product.price.toFixed(2)}`}</p>
-                            {/* <Cart productSku={product.sku} availability={product.availability}/> */}
+                            <p className="pt-3"><b>Price: </b>{`$${product.price.toFixed(2)}`}</p>
 
                             <div>
-                                <p><strong>Quantity</strong></p>
+                                <p className="mb-1"><strong>Quantity</strong></p>
                                 <div class="btn-group" role="group">
                                     <button onClick={() => handleSubtract(product.sku)} type="button" class="btn btn-danger">-</button>
-                                    <span class="px-3 py-2 border border-danger">0</span>
+                                    <span class="px-3 py-2 border border-danger">{product.quantity ? product.quantity : 0}</span>
                                     <button onClick={() => handleAdd(product.sku)} type="button" class="btn btn-danger">+</button>
                                 </div>
-                                <p>Cart (0)</p>
+                                <p>Cart ({props.numItems})</p>
                             </div>
 
                         </div>
@@ -56,4 +62,4 @@ function ProductInfo(props) {
     return (<div></div>);
 }
 
-export default connect(null, mapDispatchToProps)(ProductInfo);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductInfo);

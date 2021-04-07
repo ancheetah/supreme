@@ -7,7 +7,8 @@ import { cartReducer } from './cartReducer';
 const initialState = {
     accessories: ACCESSORIES,
     apparel: APPAREL,
-    addedItems: [],
+    addedItems: [], // array of SKUs
+    numItems: 0,    // total number of items in cart
     totalPrice: 0
 };
 
