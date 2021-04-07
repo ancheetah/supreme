@@ -24,19 +24,18 @@ function RenderStoreItem({product}) {
 
 function Store(props) {
     const [products, setProducts] = useState([]);   // initial state for products is props.products from redux store when component loads
-                                                    // returns 2 vals => current state and function to update current state
+    console.log(props);                                                // returns 2 vals => current state and function to update current state
     useEffect(() => {
             setProducts(props.products) // similar to this.setState()
-            console.log("props.products")
         }, [props.products])   // fires whenever props.products changes
 
-        const store = products.map(product => {
-            return (
-                <div key={product.id} className="col my-3">
-                    <RenderStoreItem product={product} />
-                </div>
-            );
-        });
+    const store = products.map(product => {
+        return (
+            <div key={product.id} className="col my-3">
+                <RenderStoreItem product={product} />
+            </div>
+        );
+    });
 
         return (
                 <React.Fragment>

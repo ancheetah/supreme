@@ -1,46 +1,79 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import Header from './HeaderComponent'
 
-//dispatch from here; product id and quantity
-
-class Cart extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            clicks: 0
-        };
-        this.incrementItem = this.incrementItem.bind(this);
-        this.decrementItem = this.decrementItem.bind(this);
-    }
-    
-    incrementItem = (availability) => {
-        if (availability === "In Stock") {
-            return this.setState({ clicks: this.state.clicks + 1});
-        }
-    }
-
-    decrementItem = () => {
-        if (this.state.clicks > 0) { 
-            return this.setState({ clicks: this.state.clicks - 1 });
-        }
-    }
-
-    handleClick = (id) => {
-        this.props.addToCart(id);
-    }
-
-    render() {
-        return (
-            <div>
-                <p><strong>Quantity</strong></p>
-                <div class="btn-group" role="group">
-                    <button onClick={() => this.incrementItem(this.props.availability)} type="button" class="btn btn-danger">+</button>
-                    <span class="px-3 py-2 border border-danger">{this.state.clicks}</span>
-                    <button onClick={this.decrementItem} type="button" class="btn btn-danger">-</button>
-                </div>
-                <p>Cart ({this.state.clicks})</p>
-            </div>
-        );
+const mapStateToProps = (state)=>{
+    return{
+        items: state.addedItems
     }
 }
 
-export default Cart;
+function Cart(props) {
+              
+        let addedItems = props.items.length ?
+            (  
+                props.items.map(item=>{
+                    return(
+                       
+                        <li className="media" key={item.sku}>
+                            <img src={item.img} alt={item.img} className="mr-3"/>
+                        
+                            <div className="media-body">
+                                <h5 className="mt-0 mb-1">{item.name}</h5>
+                                <p>{item.description}</p>
+                                <p><b>Price: ${item.price}</b></p> 
+                                <p><b>Quantity: {item.quantity}</b></p>
+                                <div className="add-remove">
+                                    <Link to="/cart"><i className="fa fa-caret-up"></i></Link>
+                                    <Link to="/cart"><i className="fa fa-caret-down"></i></Link>
+                                </div>
+                                <button className="btn btn-outline-secondary">Remove</button>
+                            </div>
+                            
+                        </li>                        
+                    )
+                })
+            ):
+
+             (
+                <p>Nothing.</p>
+             )
+
+       return(
+            <div>
+                <Header/>
+                <div className="cart container">
+                    <h5>You have ordered:</h5>
+                    <ul className="list-unstyled">
+                        {addedItems}
+                    </ul>
+                </div>  
+            </div>
+       )
+
+}
+
+export default connect(mapStateToProps)(Cart);
+
+
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         clicks: 0
+    //     };
+    //     this.incrementItem = this.incrementItem.bind(this);
+    //     this.decrementItem = this.decrementItem.bind(this);
+    // }
+    
+    // incrementItem = (availability) => {
+    //     if (availability === "In Stock") {
+    //         return this.setState({ clicks: this.state.clicks + 1});
+    //     }
+    // }
+
+    // decrementItem = () => {
+    //     if (this.state.clicks > 0) { 
+    //         return this.setState({ clicks: this.state.clicks - 1 });
+    //     }
+    // }

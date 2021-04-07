@@ -56,12 +56,15 @@ class Header extends Component {
                         <ul class="navbar-nav text-light mx-3">
                             <li className="nav-item mx-2"><NavLink className="nav-link" to="/store">Shop</NavLink></li>
                             <li className="nav-item mx-2"><NavLink className="nav-link" to="/brands">Brands</NavLink></li>
+                            <li className="nav-item mx-2"><NavLink className="nav-link" to="/cart">
+                                <i className="fa fa-shopping-cart"></i>Cart</NavLink>
+                            </li>
                         </ul>
-                        <span className="navbar-text ml-auto">
+                        {/* <span className="navbar-text ml-auto">
                             <button className="btn btn-outline-light" onClick={this.toggleModal}>
                                 <i className="fa fa-home"></i>Cart
                             </button>
-                        </span>
+                        </span> */}
                     </Collapse>
                 </nav>
 

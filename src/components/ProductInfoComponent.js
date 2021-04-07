@@ -1,8 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Cart from './CartComponent';
+// import Cart from './CartComponent';
+import { connect } from 'react-redux';
+import { addToCart } from '../redux/ActionCreators';
 
-function RenderProductInfo({product}) {
+const mapDispatchToProps = { addToCart };
+
+function RenderProductInfo({product, handleClick}) {
+
+    // const handleClick = (id) => this.props.addToCart(id);
+    // console.log("render product: ", product);
+
     return (
             <div className="container mt-5">
                 <div className="row">
@@ -15,8 +23,20 @@ function RenderProductInfo({product}) {
                         <p className="my-0" style={{color: product.availability === "Out of Stock" ? "red" : "green"}}>
                             {product.availability}</p>
                         <p><b>Description:</b> {product.description}</p>
-                        <p className="pt-3">{`$ ${product.price.toFixed(2)}`}</p>
-                        <Cart availability={product.availability}/>
+                        {/* <p className="pt-3">{`$ ${product.price.toFixed(2)}`}</p> */}
+                        {/* <Cart productSku={product.sku} availability={product.availability}/> */}
+
+                        <div>
+                            <p><strong>Quantity</strong></p>
+                            <div class="btn-group" role="group">
+                                {/* <button onClick={() => this.incrementItem(this.props.availability)} type="button" class="btn btn-danger">+</button> */}
+                                <button onClick={() => handleClick(product.sku)} type="button" class="btn btn-danger">-</button>
+                                <span class="px-3 py-2 border border-danger">0</span>
+                                <button onClick={() => handleClick(product.sku)} type="button" class="btn btn-danger">+</button>
+                            </div>
+                            <p>Cart (0)</p>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -25,6 +45,8 @@ function RenderProductInfo({product}) {
 
 function ProductInfo(props) {
     if (props.product) {
+        const handleClick = (id) => props.addToCart(id);
+        console.log("product info", props.product);
         return (
             <div>
                 <nav>
@@ -35,11 +57,11 @@ function ProductInfo(props) {
                     <h1 className="supreme-logo p-2 my-3 d-inline-flex">Supreme</h1>
                     <hr />
                 </nav>
-                <RenderProductInfo product={props.product} />
+                <RenderProductInfo product={props.product} handleClick={handleClick} />
             </div>
         );
     }  
     return (<div></div>);
 }
 
-export default ProductInfo;
+export default connect(null, mapDispatchToProps)(ProductInfo);
