@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux'
-import Header from './HeaderComponent'
+import { connect } from 'react-redux';
+import { Row, Col, Button, Modal, ModalHeader, ModalBody, 
+        Form, FormGroup, Input, Label } from 'reactstrap';
+import Header from './HeaderComponent';
 import { removeItem } from '../redux/ActionCreators';
 import AddRemove from './AddRemoveComponent';
+import FormText from 'reactstrap/lib/FormText';
 
 const mapStateToProps = (state)=>{
     return{
@@ -19,7 +22,22 @@ const mapDispatchToProps = {
 
 function Cart(props) {
 
+    const [modal, setModal] = useState(false);
+    const toggle = () => setModal(!modal);
+
+    const [name, setName] = useState('');
+    const [cardNum, setCardNum] = useState('');
+    const [date, setDate] = useState('');
+    const [cvv, setCVV] = useState('');
+    const [zipcode, setZipcode] = useState('');
+    const [remember, setRemember] = useState(false);
+
     const handleRemove = (id) => props.removeItem(id);
+    const handleCheckout = (event) => {    //this would normally have backend code
+        alert(`Name: ${name.value} Expires: ${date.value} Remember: ${remember.checked}`);
+        toggle(); //close modal
+        event.preventDefault();
+    }
               
         let addedItems = props.items.length ?
             (  
@@ -66,19 +84,78 @@ function Cart(props) {
        return(
             <React.Fragment>
                 <Header/>
+
                 <div className="shoppingCart container pb-5">
+
                     <div className="jumbotron jumbotron-fluid mb-0">
                         <h2>SHOPPING CART</h2>
                     </div>
+
                     <ul className="list-unstyled border border-warning py-4 px-4">
                         {addedItems}
                     </ul>
+
                     <div className="py-3 bg-warning" id="checkout">
                         <h3 className="text-black font-weight-bold py-3">Grand Total: ${props.totalPrice}</h3>
-                        <button className="btn btn-lg text-warning mx-5">CHECKOUT</button>
+                        <button className="btn btn-lg text-warning mx-5" onClick={() => toggle()}>CHECKOUT</button>
                         <Link to="/store"><button className="btn btn-lg text-warning mx-5">CONTINUE SHOPPING</button></Link>
                     </div>
+
                 </div>  
+
+                {/* Payment Form */}
+                <Modal isOpen={modal} toggle={toggle}> {/* isOpen and toggle are built-in attributes of <Modal> in reactstrap */}
+                    <ModalHeader toggle={toggle}>CHECKOUT</ModalHeader> {/* adding toggle here allows user to close modal when it is open */}
+                    <ModalBody>
+                    <Form onSubmit={handleCheckout}>
+                            <FormGroup>
+                                <Label htmlFor="name">Name</Label>
+                                <Input type="text" id="name" name="name"
+                                    innerRef={input => setName(input)} />
+                            </FormGroup>
+
+                            <FormGroup>
+                                <Label htmlFor="cardNum">Credit Card Number</Label>
+                                <Input type="password" id="cardNum" name="cardNum"
+                                    innerRef={input => setCardNum(input)} />
+                            </FormGroup>
+
+                            <FormGroup>
+                                <Label htmlFor="date">Expiration</Label>
+                                <Input type="date" id="date" name="date" innerRef={input => setDate(input)}/>
+                            </FormGroup>
+
+                            <Row>
+                                <Col>
+                                    <FormGroup>
+                                        <Label htmlFor="cvv">CVC/CVV</Label>
+                                        <Input type="text" id="cvv" name="cvv"
+                                            innerRef={input => setCVV(input)} />
+                                        <FormText>3 or 4 digit code</FormText>
+                                    </FormGroup>
+                                </Col>
+                                <Col>
+                                    <FormGroup>
+                                        <Label htmlFor="zipcode">Zipcode</Label>
+                                        <Input type="text" id="zipcode" name="zipcode"
+                                            innerRef={input => setZipcode(input)} />
+                                    </FormGroup>
+                                </Col>
+                            </Row>
+                            
+                            <FormGroup check>
+                                <Label check>
+                                    <Input type="checkbox" name="remember"
+                                        innerRef={input => setRemember(input)} />
+                                    Save my card for future use
+                                </Label>
+                            </FormGroup>
+                            
+                            <Button type="submit" value="submit" color="warning" className="my-3">Pay Now</Button>
+                        </Form>
+                    </ModalBody>
+                </Modal>
+
             </React.Fragment>
        )
 
