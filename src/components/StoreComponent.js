@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SortMenu from "./SortMenuComponent";
-
+import HeaderComponent from './HeaderComponent';
 
 function RenderStoreItem({product}) {
     return (
@@ -24,27 +24,27 @@ function RenderStoreItem({product}) {
 
 function Store(props) {
     const [products, setProducts] = useState([]);   // initial state for products is props.products from redux store when component loads
-                                                    // returns 2 vals => current state and function to update current state
+    console.log(props);                                                // returns 2 vals => current state and function to update current state
     useEffect(() => {
             setProducts(props.products) // similar to this.setState()
-            console.log("props.products")
         }, [props.products])   // fires whenever props.products changes
 
-        const store = products.map(product => {
-            return (
-                <div key={product.id} className="col my-3">
-                    <RenderStoreItem product={product} />
-                </div>
-            );
-        });
+    const store = products.map(product => {
+        return (
+            <div key={product.id} className="col my-3">
+                <RenderStoreItem product={product} />
+            </div>
+        );
+    });
 
         return (
                 <React.Fragment>
-                    <nav>
+                    <HeaderComponent/>
+                    {/* <nav>
                         <ol class="breadcrumb rounded-0 bg-dark">
                             <li class="breadcrumb-item text-white" active>Home</li>
                         </ol>
-                    </nav>
+                    </nav> */}
                     <h1 className="supreme-logo p-2 my-3 d-inline-flex">Supreme</h1>
                     <hr />
                     <div class="container">
