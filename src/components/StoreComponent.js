@@ -5,7 +5,7 @@ import HeaderComponent from './HeaderComponent';
 
 function RenderStoreItem({product}) {
     return (
-        <div className="h-100 p-3 d-flex flex-column align-items-end">
+        <div className="card h-100">
             <Link to={`/store/${product.sku}`}>
                 <img className="img-fluid card-img-top border border-warning border-bottom-0 p-2 bg-white"
                         src={ process.env.PUBLIC_URL + '/assets/img/' + product.image } 
@@ -39,26 +39,21 @@ function Store(props) {
 
         return (
                 
-                    <React.Fragment>
-                        <HeaderComponent/>
-                        {/* <nav>
-                            <ol class="breadcrumb rounded-0 bg-dark">
-                                <li class="breadcrumb-item text-white" active>Home</li>
-                            </ol>
-                        </nav> */}
-                                        <div className="container pb-5">
-                        <h1 className="supreme-logo p-2 my-3 d-inline-flex">Supreme</h1>
-                        <hr />
-                        <div class="store-wrapper p-5">
-                            <SortMenu products={[...products]} setProducts={(p) => { // Array.sort() does not return a new array so we need spread operator
-                                setProducts(p)
-                            }} />
-                            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
-                                {store}
-                            </div>
+            <React.Fragment>
+                <HeaderComponent/>
+                <div className="container pb-5">
+                    <h1 className="supreme-logo p-2 my-3 d-inline-flex">Supreme</h1>
+                    <hr />
+                    <div class="store-wrapper p-5">
+                        <SortMenu products={[...products]} setProducts={(p) => { // Array.sort() does not return a new array so we need spread operator
+                            setProducts(p)
+                        }} />
+                        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+                            {store}
                         </div>
-                                        </div>
-                    </React.Fragment>
+                    </div>
+                </div>
+            </React.Fragment>
         );
 
 }

@@ -1,15 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import Header from './HeaderComponent'
 import { removeItem } from '../redux/ActionCreators';
 import AddRemove from './AddRemoveComponent';
-import Jumbotron from 'reactstrap/lib/Jumbotron';
 
 const mapStateToProps = (state)=>{
     return{
         accessories: state.accessories,
-        items: state.addedItems,
-        numItems: state.numItems,    
+        items: state.addedItems,   
         totalPrice: state.totalPrice
     }
 }
@@ -31,7 +30,7 @@ function Cart(props) {
                        
                         <li className="media bg-white mb-2" key={item.sku}>
                             <img src={process.env.PUBLIC_URL + '/assets/img/' + item.image} alt={item.image} 
-                                className="mr-5 p-2" height="150" width="150" />
+                                className="mr-5 p-2 align-self-center" height="150" width="150" />
                         
                             <div className="media-body text-left ml-md-5">
                                 <div class="row">
@@ -71,13 +70,13 @@ function Cart(props) {
                     <div className="jumbotron jumbotron-fluid mb-0">
                         <h2>SHOPPING CART</h2>
                     </div>
-                    <ul className="list-unstyled border py-4 px-4">
+                    <ul className="list-unstyled border border-warning py-4 px-4">
                         {addedItems}
                     </ul>
                     <div className="py-3 bg-warning" id="checkout">
-                        <h3 className="text-black font-weight-bold">Grand Total: ${props.totalPrice}</h3>
+                        <h3 className="text-black font-weight-bold py-3">Grand Total: ${props.totalPrice}</h3>
                         <button className="btn btn-lg text-warning mx-5">CHECKOUT</button>
-                        <button className="btn btn-lg text-warning mx-5">CONTINUE SHOPPING</button>
+                        <Link to="/store"><button className="btn btn-lg text-warning mx-5">CONTINUE SHOPPING</button></Link>
                     </div>
                 </div>  
             </React.Fragment>

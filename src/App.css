@@ -54,16 +54,12 @@ body, h1, h2, h3, h4, h5, p {
   color: #FFD100;
 }
 
-.store-wrapper {
+.store-wrapper, .product-info, .shoppingCart ul {
   background-color: rgba(0,0,0,0.85);
 }
 
 .store-card {
   background-color: black;
-}
-
-.shoppingCart ul {
-  background-color: rgba(0,0,0,0.85);
 }
 
 .shoppingCart li {
@@ -75,7 +71,7 @@ body, h1, h2, h3, h4, h5, p {
 }
 
 .nav-link {
-  font-size: 1.2rem;
-  font-weight: 400;
+  font-size: 1.1rem;
+  font-weight: 300;
   text-transform: uppercase;
 }
