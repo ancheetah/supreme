@@ -4,11 +4,13 @@ import { connect } from 'react-redux';
 import Store from './StoreComponent';
 import ProductInfo from './ProductInfoComponent';
 import Cart from './CartComponent';
+import Brands from './BrandsComponent';
 
 const mapStateToProps = state => {
     return {
         accessories: state.accessories,
-        apparel: state.apparel
+        apparel: state.apparel,
+        brands: state.brands
     };
 };
 
@@ -31,6 +33,7 @@ class Main extends Component {
                         <Store products={this.props.accessories}/>} /> 
                     <Route path='/store/:productSku' component={ProductWithSKU} />
                     <Route path='/cart' component={Cart} />
+                    <Route path='/brands' render={ () => <Brands brands={this.props.brands} /> } />
                     <Redirect to='/store' />
                 </Switch>
         );

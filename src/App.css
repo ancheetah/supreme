@@ -41,6 +41,12 @@ body, h1, h2, h3, h4, h5, p {
   font-family: 'Jost', 'Arial', sans-serif;
 }
 
+.card-img-top {
+  width: 100%;
+  height: 30vh;
+  object-fit: cover;
+}
+
 .supreme-logo {
   font-family: 'Futura', 'Arial', sans-serif;
   color: white;
@@ -54,7 +60,7 @@ body, h1, h2, h3, h4, h5, p {
   color: #FFD100;
 }
 
-.store-wrapper, .shoppingCart ul {
+.store-wrapper, .brands-wrapper, .shoppingCart ul {
   background-color: rgba(0,0,0,0.70);
 }
 .product-info {

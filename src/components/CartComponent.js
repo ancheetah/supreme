@@ -97,8 +97,8 @@ function Cart(props) {
 
                     <div className="py-3 bg-warning" id="checkout">
                         <h3 className="text-black font-weight-bold py-3">Grand Total: ${props.totalPrice}</h3>
-                        <button className="btn btn-lg text-warning mx-5" onClick={() => toggle()}>CHECKOUT</button>
-                        <Link to="/store"><button className="btn btn-lg text-warning mx-5">CONTINUE SHOPPING</button></Link>
+                        <button className="btn btn-lg text-warning mx-5 my-2" onClick={() => toggle()}>CHECKOUT</button>
+                        <Link to="/store"><button className="btn btn-lg text-warning mx-5 my-2">CONTINUE SHOPPING</button></Link>
                     </div>
 
                 </div>  

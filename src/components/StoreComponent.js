@@ -9,7 +9,7 @@ function RenderStoreItem({product}) {
             <Link to={`/store/${product.sku}`}>
                 <img className="img-fluid card-img-top border border-warning border-bottom-0 p-2 bg-white"
                         src={ process.env.PUBLIC_URL + '/assets/img/' + product.image } 
-                        width="200" height="200" alt={product.name} />
+                        width="200" height="auto" alt={product.name} />
             </Link>
             <div className="card-body border border-warning text-warning store-card">
                 <p className="card-title"><strong>{product.name}</strong></p>
