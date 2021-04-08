@@ -8,22 +8,15 @@ export const addToCart = (sku) => ({
     }
 })
 
-export const removeItem = (sku) => ({
-    type: ActionTypes.REMOVE_ITEM,
+export const subtractFromCart = (sku) => ({
+    type: ActionTypes.SUBTRACT_FROM_CART,
     payload: {
         sku: sku
     }
 })
 
-// export const addQuantity = (sku) => ({
-//     type: ActionTypes.ADD_QUANTITY,
-//     payload: {
-//         sku: sku
-//     }
-// })
-
-export const subtractFromCart = (sku) => ({
-    type: ActionTypes.SUBTRACT_FROM_CART,
+export const removeItem = (sku) => ({
+    type: ActionTypes.REMOVE_ITEM,
     payload: {
         sku: sku
     }

@@ -2,7 +2,7 @@ import * as ActionTypes from './ActionTypes';
 
 export const cartReducer = ( state, action) => {
     switch (action.type) {
-        case ActionTypes.ADD_TO_CART:   // On product page
+        case ActionTypes.ADD_TO_CART:   // Increment item by one in cart
             let addedItem = state.accessories.find( item => item.sku === action.payload.sku );    // get a ref to the item object
             let existingItem = state.addedItems.find( id => id === action.payload.sku );    // Check if the item exists in the cart already
 
