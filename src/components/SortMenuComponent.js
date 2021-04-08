@@ -1,14 +1,6 @@
 import React, { Component } from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
-// import { withRouter } from 'react-router-dom';
-// import { connect } from 'react-redux';
-
-// const mapDispatchToProps = {
-//   sortByPrice: (arr, direction) => (sortByPrice(arr, direction)),
-//   sortByRating: (arr, direction) => (sortByRating(arr, direction))
-// }
-
 class SortMenu extends Component {
 
   constructor(props) {
@@ -38,8 +30,9 @@ class SortMenu extends Component {
 
   render() {
     return (
-      <Dropdown isOpen={this.state.isDropdownOpen} toggle={this.toggleDropdown} size="sm" className="d-flex justify-content-start">
-        <DropdownToggle caret className="bg-white text-dark">Sort By</DropdownToggle>
+      <Dropdown isOpen={this.state.isDropdownOpen} toggle={this.toggleDropdown} 
+        size="md" className="mb-3 d-flex justify-content-start">
+        <DropdownToggle caret color="secondary">Sort By </DropdownToggle>
         <DropdownMenu>
 
           <DropdownItem header>Price</DropdownItem>
@@ -71,5 +64,4 @@ class SortMenu extends Component {
   }
 }
 
-// export default withRouter(connect(null, mapDispatchToProps)(SortMenu));
 export default SortMenu;
