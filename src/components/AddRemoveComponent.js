@@ -18,7 +18,7 @@ function AddRemove(props) {
     const handleSubtract = (id) => props.subtractFromCart(id);
 
     let btnColor = props.product.availability === "In Stock" ? 
-        {disabled: false, color: "btn-primary", borderColor: "border-primary"} : 
+        {disabled: false, color: "btn-warning", borderColor: "border-warning"} : 
         {disabled: true, color: "btn-secondary", borderColor: "border-secondary"};
 
     return (

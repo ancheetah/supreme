@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <BrowserRouter>
-          <div className="App">
+          <div className="App" style={{ backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/img/site-background-2.jpeg'})` }}>
               <Main />
           </div>
         </BrowserRouter>
