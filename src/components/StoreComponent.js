@@ -23,6 +23,7 @@ function RenderStoreItem({product}) {
 }
 
 function Store(props) {
+
     const [products, setProducts] = useState([]);   // initial state for products is props.products from redux store when component loads
     console.log(props);                                                // returns 2 vals => current state and function to update current state
     useEffect(() => {
@@ -42,8 +43,8 @@ function Store(props) {
             <React.Fragment>
                 <HeaderComponent/>
                 <div className="container pb-5">
-                    <h1 className="supreme-logo p-2 my-3 d-inline-flex">Supreme</h1>
-                    <hr />
+                    <img src={ `${process.env.PUBLIC_URL}/assets/img/brands/supreme-logo-interesting-art--3.png` } 
+                        alt='Supreme Logo' width="300" height="auto" className="mb-3" />
                     <div class="store-wrapper p-5">
                         <SortMenu products={[...products]} setProducts={(p) => { // Array.sort() does not return a new array so we need spread operator
                             setProducts(p)

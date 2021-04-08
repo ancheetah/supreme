@@ -2,7 +2,7 @@ export const BRANDS = [
     {
         id: 0,
         name: 'Supreme',
-        image: 'supreme-logo-interesting-art--3.png'
+        image: 'supreme-logo-square.png'
     },
     {
         id: 1,
