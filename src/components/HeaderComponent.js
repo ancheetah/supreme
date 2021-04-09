@@ -1,6 +1,5 @@
 import React, { Component }  from 'react';
-import { Button, Modal, ModalHeader, ModalBody, 
-    Collapse, Form, FormGroup, Input, Label } from 'reactstrap';
+import { Collapse } from 'reactstrap';
 import { NavLink, Link } from 'react-router-dom';
 
 class Header extends Component {
