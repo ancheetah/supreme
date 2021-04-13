@@ -1,25 +1,27 @@
 {
   "files": {
-    "main.css": "/supreme/static/css/main.a5c69bf4.chunk.css",
-    "main.js": "/supreme/static/js/main.33b9a027.chunk.js",
-    "main.js.map": "/supreme/static/js/main.33b9a027.chunk.js.map",
-    "runtime-main.js": "/supreme/static/js/runtime-main.dbb0a7f3.js",
-    "runtime-main.js.map": "/supreme/static/js/runtime-main.dbb0a7f3.js.map",
-    "static/css/2.ce2397d7.chunk.css": "/supreme/static/css/2.ce2397d7.chunk.css",
-    "static/js/2.1305e15b.chunk.js": "/supreme/static/js/2.1305e15b.chunk.js",
-    "static/js/2.1305e15b.chunk.js.map": "/supreme/static/js/2.1305e15b.chunk.js.map",
-    "static/js/3.f446b8a8.chunk.js": "/supreme/static/js/3.f446b8a8.chunk.js",
-    "static/js/3.f446b8a8.chunk.js.map": "/supreme/static/js/3.f446b8a8.chunk.js.map",
+    "main.css": "/supreme/static/css/main.4b68a538.chunk.css",
+    "main.js": "/supreme/static/js/main.4237ebdc.chunk.js",
+    "main.js.map": "/supreme/static/js/main.4237ebdc.chunk.js.map",
+    "runtime-main.js": "/supreme/static/js/runtime-main.494e53e5.js",
+    "runtime-main.js.map": "/supreme/static/js/runtime-main.494e53e5.js.map",
+    "static/css/2.359b954e.chunk.css": "/supreme/static/css/2.359b954e.chunk.css",
+    "static/js/2.20563b8e.chunk.js": "/supreme/static/js/2.20563b8e.chunk.js",
+    "static/js/2.20563b8e.chunk.js.map": "/supreme/static/js/2.20563b8e.chunk.js.map",
+    "static/js/3.c7582493.chunk.js": "/supreme/static/js/3.c7582493.chunk.js",
+    "static/js/3.c7582493.chunk.js.map": "/supreme/static/js/3.c7582493.chunk.js.map",
     "index.html": "/supreme/index.html",
-    "static/css/2.ce2397d7.chunk.css.map": "/supreme/static/css/2.ce2397d7.chunk.css.map",
-    "static/css/main.a5c69bf4.chunk.css.map": "/supreme/static/css/main.a5c69bf4.chunk.css.map",
-    "static/js/2.1305e15b.chunk.js.LICENSE.txt": "/supreme/static/js/2.1305e15b.chunk.js.LICENSE.txt"
+    "static/css/2.359b954e.chunk.css.map": "/supreme/static/css/2.359b954e.chunk.css.map",
+    "static/css/main.4b68a538.chunk.css.map": "/supreme/static/css/main.4b68a538.chunk.css.map",
+    "static/js/2.20563b8e.chunk.js.LICENSE.txt": "/supreme/static/js/2.20563b8e.chunk.js.LICENSE.txt",
+    "static/media/font-awesome.min.css": "/supreme/static/media/fontawesome-webfont.f691f37e.woff",
+    "static/media/index.css": "/supreme/static/media/jost-latin-ext-400-normal.5685b36a.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.dbb0a7f3.js",
-    "static/css/2.ce2397d7.chunk.css",
-    "static/js/2.1305e15b.chunk.js",
-    "static/css/main.a5c69bf4.chunk.css",
-    "static/js/main.33b9a027.chunk.js"
+    "static/js/runtime-main.494e53e5.js",
+    "static/css/2.359b954e.chunk.css",
+    "static/js/2.20563b8e.chunk.js",
+    "static/css/main.4b68a538.chunk.css",
+    "static/js/main.4237ebdc.chunk.js"
   ]
 }
