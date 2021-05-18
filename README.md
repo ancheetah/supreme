@@ -1,7 +1,7 @@
 ## On Deck Streetwear
 On Deck is mock e-commerce re-sale store that carries hot streetwear brands. This app was built with React.js. Customers can sort products in the store and add them to their shopping cart.
 
-https://ancheetah.github.io/supreme (final version not yet deployed)
+Project Demo: https://ancheetah.github.io/supreme
 
 [Video Demo](https://drive.google.com/file/d/1a_x5pxMSFdINecucEFAyIWcn6tks3sGJ/view?usp=sharing)
 
