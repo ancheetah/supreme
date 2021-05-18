@@ -20,14 +20,11 @@ https://ancheetah.github.io/supreme (final version not yet deployed)
 
 ### Challenges
 
-#### Passing props
-Before implementing Redux my state variables were declared in the Main component. The products prop at one time was passed from component to component to component. It was hard to keep track of why the inner most child component was not re-rendering after sorting the items. Upon backtracking out of several component levels into main I learned I had to update the state in Main with the sorted products by passing a `setState()` function from Main where the state was all the way down to the child component. Later storing the products in the Redux store and using React Hooks proved to be a more robust solution to many problems.
+#### Redux and passing props
+Before implementing Redux, my state variables were declared in the Main component. The products prop was passed several times down the component hierarchy. It was hard to keep track of why the child component was not re-rendering after sorting the items. Upon backtracking I learned I had to update the state in Main with the sorted products by passing a `setState()` function from Main where the state lived then all the way down to the child component. Later storing the product state in the Redux store helped alleviate this problem and make my code easier to follow.
 
 #### React Hooks
-With the help of my instructor (thanks Matt!) I learned about the value/convenience of using React hooks to create state variables and update the state inside a component. This was useful when re-rendering the store items after sorting them. If the sorting had been handled by redux then the order of the items in the store would be re-arranged after every click from the sort menu which may be undesirable and unnecessary. Instead sorting is better handled by creating a copy of the store locally in the Store component.
-
-#### Redux
-It was a challenge deciding when it was appropriate to use Redux. I initially had set up sorting actions to be handled by redux and then later moved the sort functions inside the Sort component for the reasons mentioned above. With a good tutorial for reference I was able to set up the shopping cart state in Redux and really understand its power.
+I learned about the convenience of using React hooks to handle state inside a component as an alternative to class components. The redux store was set up to handle the cart's state and store product data. It was not necessary to update the store every time a user selected an option from the sort menu. Instead, I used react hooks to copy the part of the store I needed and update it after the products were sorted.
 
 ### To Do
 - Add products to database for more brands and allow filtering by brand in the store
